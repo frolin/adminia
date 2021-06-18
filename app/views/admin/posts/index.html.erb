@@ -1,0 +1,17 @@
+<%= link_to 'Create new', new_admin_post_path, class: 'btn btn-primary btn-sm mb-2' %>
+
+<table class="table table-sm">
+  <tbody>
+  <% @posts.each do |post| %>
+  <tr>
+    <td> <%= post.id %> </td>
+    <td> [ADD INFO]</td>
+    <td>
+      <%= link_to 'Show', admin_post_path(post), class: 'btn btn-sm btn-outline-info' %>
+      <%= link_to 'Edit', edit_admin_post_path(post), class: 'btn btn-sm btn-outline-info' %>
+      <%= link_to 'Destroy', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger' %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
