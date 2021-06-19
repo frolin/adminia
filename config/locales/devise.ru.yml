@@ -1,7 +1,8 @@
 ru:
   login:
     info: "Проект Admin Village. Управляйте своим поселком. "
-    welcome: 'Добра пожаловать в личный кабинет Фламандии'
+    welcome: Добро пожаловать
+    welcome_2: личный кабинет КП "Фламандия"
   activerecord:
     attributes:
       user:
@@ -49,7 +50,7 @@ ru:
       locked: Ваша учетная запись заблокирована.
       not_found_in_database: Неправильный %{authentication_keys} или пароль.
       timeout: Ваш сеанс закончился. Пожалуйста, войдите в систему снова.
-      unauthenticated: Вам необходимо войти в систему или зарегистрироваться.
+      unauthenticated: ''
       unconfirmed: Вы должны подтвердить вашу учетную запись.
     mailer:
       confirmation_instructions:

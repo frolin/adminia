@@ -1,11 +1,28 @@
 Adminia6::Application.routes.draw do
-	devise_for :users, :controllers => { :sessions => "sessions" }
-	root to: "appviews#profile"
+	devise_for :users, :controllers => { :sessions => "sessions" } do
+		get '/users/sign_out' => 'devise/sessions#destroy'
+	end
+	root to: "dashboards#dashboard_3"
 
+	get "appviews/contacts"
+	get "appviews/projects"
+	get "appviews/project_detail"
+	get "appviews/pin_board"
+	get "appviews/social_feed"
+	get "appviews/teams_board"
+	get "graphs/flot"
+
+	get "layoutsoptions/index"
+	get "layoutsoptions/off_canvas"
+	get "dashboards/dashboard_1"
+	get "dashboards/dashboard_2"
+	get "dashboards/dashboard_3"
+	get "dashboards/dashboard_4"
+	get "dashboards/dashboard_4_1"
+	get "dashboards/dashboard_5"
 	# resources :posts
 
 	get "appviews/profile", as: 'user_root'
-
 
 	namespace :admin do
 		devise_for :admin_users, :controllers => { :sessions => "admin/sessions" }

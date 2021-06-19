@@ -1,0 +1,11 @@
+ru:
+  categories:
+    contacts: 'Соседи'
+    appviews: 'Главная'
+    dashboard: 'Дашборд'
+    order_pass: "Заказать пропуск"
+    tracker: 'Обращения'
+    teams_board: 'Проекты'
+    projects: 'Проекты'
+    social_feed: "События"
+    pin_board: 'Заказ пропуска'

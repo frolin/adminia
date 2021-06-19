@@ -12,7 +12,29 @@
   background-size: cover;
 }
 
+.login-bg:before {
+  content: "";
+  background: #ffc3904d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .login-btn {
   height: 43px;
   margin: 30px 0 10px 0;
+}
+
+.login-welcome р2 {
+  line-height: 1.7;
+  margin: 10px 24px;
+}
+
+.login-welcome р3 {
+  line-height: 1.7;
+  margin: 17px 14px;
 }
