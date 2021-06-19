@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400&display=swap');
+
 body {
+  //font-family: 'Roboto Slab', serif;
+
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #2f4050;
-  font-size: 13px;
+  font-size: 15px;
   color: $text-color;
   overflow-x: hidden;
 
@@ -9,7 +13,6 @@ body {
 
 html, body {
   height: 100%;
-
 }
 
 body.full-height-layout #wrapper,

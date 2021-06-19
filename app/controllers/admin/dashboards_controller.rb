@@ -1,5 +1,6 @@
-class DashboardsController < ApplicationController
+class Admin::DashboardsController < Admin::ApplicationController
   def dashboard_1
+      render :layout => "admin/layouts/application"
   end
 
   def dashboard_2

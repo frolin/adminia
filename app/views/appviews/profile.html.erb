@@ -3,13 +3,14 @@
         <h2>Profile</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="<%= url_for :controller => 'dashboards', :action => 'dashboard_1' %>">Home</a>
+<!--                <a href="<%#= url_for :controller => 'dashboards', :action => 'dashboard_1' %>">Home</a>-->
         </li>
         <li>
             <a>App views</a>
         </li>
         <li class="active">
             <strong>Profile</strong>
+          <%= link_to 'edit', edit_user_registration_path(current_user) %>
         </li>
     </ol>
 </div>
