@@ -100,6 +100,8 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     execjs (2.8.1)
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.1)
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
@@ -268,6 +270,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  faker
   font-awesome-rails
   gravtastic
   image_processing (~> 1.2)

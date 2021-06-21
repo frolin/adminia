@@ -1,8 +1,18 @@
 Adminia6::Application.routes.draw do
+  get 'events/show'
+  get 'events/index'
+  get 'projects/show'
+  get 'projects/index'
+  get 'project/show'
+  get 'project/index'
+  get 'event/show'
+  get 'event/index'
 	devise_for :users, :controllers => { :sessions => "sessions" } do
 		get '/users/sign_out' => 'devise/sessions#destroy'
 	end
 	root to: "dashboards#dashboard_3"
+
+  resources :projects, only: [:index, :show]
 
 	get "appviews/contacts"
 	get "appviews/projects"
@@ -25,8 +35,6 @@ Adminia6::Application.routes.draw do
 	get "appviews/profile", as: 'user_root'
 
 	namespace :admin do
-		devise_for :admin_users, :controllers => { :sessions => "admin/sessions" }
-
 		get "/" => "dashboards#dashboard_1"
 
 		# You can have the root of your site routed with "root"
