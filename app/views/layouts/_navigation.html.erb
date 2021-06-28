@@ -4,8 +4,7 @@
       <li class="nav-header">
         <div class="dropdown profile-element">
                     <span>
-
-<!--                        <img alt="image" class="img-circle" src=""/>-->
+                        <img alt="image" class="img-circle" src="<%= url_for(current_user.avatar.variant(resize_to_fill: [128, 128, gravity: 'north'])) %>"/>
                     </span>
           <a href="<%= user_root_path %>">
                         <span class="clear">
@@ -98,8 +97,8 @@
         <% end %>
       </li>
 
-      <li class="<%= is_active_controller('contacts') %>">
-        <%= link_to appviews_contacts_path do %>
+      <li class="<%= is_active_controller('neighbors') %>">
+        <%= link_to neighbors_path do %>
           <i class="fa fa-users"></i>
           <span class="nav-label" data-i18n="categories.contacts"> <%= I18n.t('.categories.contacts') %> </span>
         <% end %>
@@ -112,10 +111,11 @@
         <% end %>
       </li>
 
-      <li class="<%= is_active_controller('projects') %>">
-        <%= link_to appviews_projects_path do %>
+      <li class="<%= is_active_controller('issues') %>">
+        <%= link_to issues_path do %>
           <i class="fa fa-comments"></i>
-          <span class="nav-label" data-i18n="categories.tracker"> <%= I18n.t('.categories.tracker') %> </span>
+          <span class="nav-label" data-i18n="categories.issues"> <%= I18n.t('.categories.issues') %> </span>
+          <%#= menu_issue_counter %>
         <% end %>
       </li>
 

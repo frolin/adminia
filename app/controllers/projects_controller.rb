@@ -7,6 +7,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def resource
-		resource ||= Project.all
+		@resource ||= Project.all
 	end
 end

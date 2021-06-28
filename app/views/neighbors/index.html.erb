@@ -1,0 +1,44 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <% neighbors.each do |neighbor| %>
+      <div class="col-lg-4">
+        <div class="contact-box">
+
+          <a class="row" href="<%= neighbor_path(neighbor) %>">
+            <div class="col-sm-4">
+              <div class="text-center">
+                 <img alt="image" class="img-circle m-t-xs img-responsive"
+                   src="<%= url_for(neighbor.avatar.variant(resize_to_fill: [248, 248, gravity: 'north'])) if neighbor.avatar.present? %>">
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <h3><strong><%= "#{neighbor.full_name}" %></strong></h3>
+              <p><i class="fa fa-map-marker"></i> <strong>участок: </strong><%= neighbor.locality %></p>
+
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%# content_for :javascript do %>
+
+<!--  <script type="text/javascript">-->
+
+<!--      $(function () {-->
+
+<!--          $('.contact-box').each(function () {-->
+<!--              animationHover(this, 'pulse');-->
+<!--          });-->
+
+<!--      });-->
+
+<!--  </script>-->
+
+<%# end %>
+

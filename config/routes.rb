@@ -1,22 +1,18 @@
 Adminia6::Application.routes.draw do
-  get 'events/show'
-  get 'events/index'
-  get 'projects/show'
-  get 'projects/index'
-  get 'project/show'
-  get 'project/index'
-  get 'event/show'
-  get 'event/index'
+  get 'issues/show'
+  get 'issues/index'
+
+  telegram_webhook Telegram::WebhooksController, :helper
 	devise_for :users, :controllers => { :sessions => "sessions" } do
-		get '/users/sign_out' => 'devise/sessions#destroy'
+		get '/neighbors/sign_out' => 'devise/sessions#destroy'
 	end
 	root to: "dashboards#dashboard_3"
 
   resources :projects, only: [:index, :show]
+  resources :events, only: [:index, :show]
+  resources :issues, except: :destroy
+  resources :neighbors, only: [:index, :show]
 
-	get "appviews/contacts"
-	get "appviews/projects"
-	get "appviews/project_detail"
 	get "appviews/pin_board"
 	get "appviews/social_feed"
 	get "appviews/teams_board"
@@ -30,7 +26,7 @@ Adminia6::Application.routes.draw do
 	get "dashboards/dashboard_4"
 	get "dashboards/dashboard_4_1"
 	get "dashboards/dashboard_5"
-	# resources :posts
+	# neighbors :posts
 
 	get "appviews/profile", as: 'user_root'
 

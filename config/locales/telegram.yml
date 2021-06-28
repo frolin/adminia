@@ -1,0 +1,8 @@
+ru:
+  telegram:
+    webhooks:
+      message:
+        content: 'ХАЮ ХАЙ'
+      inline_keyboard:
+        prompt: 'sdgsgdgdsgdfgsfsdfg'
+        issues: 'Обращения'

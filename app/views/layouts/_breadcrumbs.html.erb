@@ -1,12 +1,12 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
-    <h2><%= I18n.t("categories.#{action_name}") %></h2>
+    <h2><%= I18n.t("categories.#{controller_name}.#{action_name}") %></h2>
     <ol class="breadcrumb">
       <li>
-<!--        <a href="<%#= url_for :controller => 'dashboards', :action => 'dashboard_3' %>"> <%#= I18n.t("categories.#{controller_name}") %></a>-->
+        <a href="/">Главная</a>
       </li>
       <li class="active">
-        <strong><%= I18n.t("categories.#{action_name}") %></strong>
+        <strong><%= I18n.t("categories.#{controller_name}.#{action_name}") %></strong>
       </li>
     </ol>
   </div>

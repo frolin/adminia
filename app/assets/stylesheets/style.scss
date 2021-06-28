@@ -30,6 +30,8 @@
 @import "base/chat";
 @import "base/metismenu";
 @import "base/spinners";
+@import "base/badges_labels";
+@import "neighbors";
 
 // Landing page
 @import "base/landing";
@@ -64,3 +66,12 @@
   }
 }
 
+
+@import "login";
+@import "issues";
+
+.issue-title a {
+  font-size: 14px;
+  color: $text-color;
+  font-weight: 600;
+}

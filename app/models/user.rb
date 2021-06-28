@@ -3,7 +3,14 @@ class User < ApplicationRecord
 	# :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 	devise :database_authenticatable, :recoverable, :rememberable, :validatable, :registerable
 
-	has_one_attached :avatar
+	has_one_attached :avatar do |attachable|
+		attachable.variant :thumb, resize: "128x128"
+	end
+
+	has_many :issues
+	has_many :projects
+
+	scope :neighbors, -> { where(admin: false) }
 
 	def username
 		"#{second_name} #{first_name} #{third_name}"
@@ -15,5 +22,9 @@ class User < ApplicationRecord
 		else
 			'https://randomuser.me/api/portraits/women/50.jpg'
 		end
+	end
+
+	def full_name
+		"#{second_name} #{second_name} #{third_name}"
 	end
 end
