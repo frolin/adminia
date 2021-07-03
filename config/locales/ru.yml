@@ -9,18 +9,9 @@ ru:
     social_feed: "События"
     pin_board: 'Заказ пропуска'
     issues: 'Обращения'
+    new_issues: 'Новое обращение'
 
-  issue:
-    created_by: 'Создана'
-    description: 'Описание'
-    created_at: 'Создана'
-    updated_at: 'Обновлена'
-    status:
-      label: 'Статус'
-      queue: 'В очереди'
-      in_work: 'В работе'
-      done: 'Выполенено'
-      archive: 'В архиве'
+
 
   time:
     formats:

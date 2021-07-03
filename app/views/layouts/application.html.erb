@@ -10,9 +10,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
 </head>
 
 <body class="light-skin">
+
 
 <!-- Skin configuration box -->
 <!-- <%= render 'layouts/skinconfig' %> -->
@@ -30,7 +32,7 @@
     <%= render 'layouts/topnavbar' %>
 
     <!-- Main view  -->
-    <%= render  'layouts/breadcrumbs' %>
+    <%= render 'layouts/breadcrumbs' %>
     <%= yield %>
 
     <!-- Footer -->

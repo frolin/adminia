@@ -9,11 +9,17 @@ class User < ApplicationRecord
 
 	has_many :issues
 	has_many :projects
+	has_many :users_roles
+	has_many :roles, through: :users_roles
 
 	scope :neighbors, -> { where(admin: false) }
 
 	def username
 		"#{second_name} #{first_name} #{third_name}"
+	end
+
+	def with_role?(role_name)
+		self.roles.map(&:name).include?(role_name)
 	end
 
 	def user_avatar(size = 40)

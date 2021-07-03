@@ -22,3 +22,4 @@ require("channels")
 
 import "controllers"
 import "stylesheets/application"
+import "stylesheets/application"

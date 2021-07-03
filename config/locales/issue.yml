@@ -1,0 +1,14 @@
+ru:
+  issue:
+    new: 'Новое обращение'
+    name: 'Тема'
+    description: 'Описание'
+    created_by: 'Автор'
+    created_at: 'Создана'
+    updated_at: 'Обновлена'
+    status:
+      label: 'Статус'
+      queue: 'В очереди'
+      in_work: 'В работе'
+      done: 'Выполенено'
+      archive: 'В архиве'

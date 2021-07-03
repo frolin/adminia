@@ -1,13 +1,21 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
-    <h2><%= I18n.t("categories.#{controller_name}.#{action_name}") %></h2>
     <ol class="breadcrumb">
+<!--      <li>-->
+<!--        <a href="/">Главная</a>-->
+<!--      </li>-->
+
       <li>
-        <a href="/">Главная</a>
+        <strong> <%= I18n.t("categories.#{controller_name}") %> / </strong>
       </li>
-      <li class="active">
-        <strong><%= I18n.t("categories.#{controller_name}.#{action_name}") %></strong>
+
+<!--    <h2><%#= I18n.t("categories.#{controller_name}.#{action_name}") %></h2>-->
+
+      <li>
+        <div><%= content_for :breadcrumb %></div>
       </li>
+
+
     </ol>
   </div>
 </div>

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
@@ -44,7 +44,10 @@ group :development do
 	gem 'listen', '~> 3.3'
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring'
+
+	# PRY
 	gem 'pry'
+	gem 'pry-stack_explorer'
 end
 
 group :test do
@@ -77,6 +80,10 @@ gem 'aasm'
 # tags
 gem 'acts-as-taggable-on', '~> 7.0'
 
-
 # telegram
 gem 'telegram-bot'
+gem "tailwindcss-rails", "~> 0.3.3"
+
+gem "simple_form", "~> 5.1"
+gem "select2-rails"
+gem "new_ckeditor", "~> 0.1.2"

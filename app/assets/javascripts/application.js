@@ -12,4 +12,7 @@
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require inspinia.js
+//= require select2
+//= require new_ckeditor
+
 

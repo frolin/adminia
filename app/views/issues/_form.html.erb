@@ -1,23 +1,85 @@
+<%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbolinks-track': 'reload' %>
+
 <div class="row">
-  <div class="col-lg-12">
-    <div class="wrapper wrapper-content animated fadeInUp">
+  <div class="col-lg-7 col-centered">
+    <div class="wrapper wrapper-content animated fadeIn">
       <div class="ibox">
+        <div class="ibox-title">
+          <%= content_for :breadcrumb do %>
+            <%= I18n.t('.issue.new') %>
+          <% end %>
+
+          <h5> <%= I18n.t('.issue.new') %> </h5>
+          <div class="ibox-tools">
+            <!--            <a class="collapse-link">-->
+            <!--              <i class="fa fa-chevron-up"></i>-->
+            <!--            </a>-->
+            <!--            <a class="dropdown-toggle" data-toggle="dropdown" href="#">-->
+            <!--              <i class="fa fa-wrench"></i>-->
+            <!--            </a>-->
+            <!--            <ul class="dropdown-menu dropdown-user">-->
+            <!--              <li><a href="#" class="dropdown-item">Config option 1</a>-->
+            <!--              </li>-->
+            <!--              <li><a href="#" class="dropdown-item">Config option 2</a>-->
+            <!--              </li>-->
+            <!--            </ul>-->
+            <!--            <a class="close-link">-->
+            <!--              <i class="fa fa-times"></i>-->
+            <!--            </a>-->
+          </div>
+        </div>
         <div class="ibox-content">
-          <div class="row">
-            <div class="col-lg-12">
-            <%= form_for(resource, as: 'issue', url: new_issue_path(resource), class: "form-issue form-horizontal") do |f| %>
-                  <%= render "shared/forms/errors", resource: resource %>
 
-                <div class="field">
-                  <%= f.label :name %><br/>
-                  <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
+          <div class="col-lg-12 col-centered">
+            <%= simple_form_for(resource, as: 'issue', url: issues_path, method: :post, class: "form-issue form-horizontal") do |f| %>
+              <%= render "shared/forms/errors", resource: f.object %>
+
+              <div class="form-group row">
+                <%= f.input :name, placeholder: I18n.t('.issue.name'), label: false, autofocus: true, class: "form-control" %>
+              </div>
+
+              <div class="form-group row">
+                <%= f.input :category, collection: Category.all.map { |c| [c.name, c.id] },
+                            label: false,
+                            prompt: "Выберите категорию",
+                            class: "form-control" %>
+
+              </div>
+
+
+              <div class="form-group row">
+                <%= f.ckeditor :description, placeholder: I18n.t('.issue.description'), label: false, class: "form-control" %>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-ce col-centered">
+                  <%= f.submit 'Создать', class: "btn btn-primary" %>
                 </div>
-                <%= f.submit 'Submit', class: "btn btn-success" %>
+              </div>
 
-              <% end %>
+              <!--                <div class="form-group row">-->
+              <!--                  <div class="col-sm-10">-->
+              <!--                    <input type="text" class="form-control" placeholder="Тема">-->
+              <!--                  </div>-->
+              <!--                </div>-->
+
+              <!--                <div class="form-group row">-->
+
+              <!--                  <div class="col-sm-10">-->
+              <!--                    <textarea class="form-control" id="" cols="30" rows="10" placeholder="Описание"></textarea>-->
+
+              <!--                  </div>-->
+              <!--                </div>-->
+              <%#= f.input :tags_list, input_html: { class: 'multiple-input' } %>
+              <div class="field">
+                <%#= f.input :tags_list, input_html: { value: resource.tags_list.join(",") } %>
+              </div>
+              <%#= f.input :tag_list, collection: resource.tag_list %>
 
 
-            </div>
+            <% end %>
+
+
           </div>
         </div>
       </div>
@@ -25,3 +87,28 @@
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript" charset="utf-8">
+    // JS Initializer
+    $(document).on('turbolinks:load', function () {
+        // Select2 Tag Creation
+        $('.multiple-input').each(function () {
+            $(this).select2({
+                tags: true,
+                tokenSeparators: [',', ' '],
+                theme: 'bootstrap',
+                placeholder: 'Ведите теги'
+            });
+        });
+
+
+    });
+</script>
+
+<style>
+    .ck-editor__editable_inline {
+        min-height: 130px;
+    }
+</style>
+

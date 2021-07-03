@@ -1,6 +1,4 @@
 Adminia6::Application.routes.draw do
-  get 'issues/show'
-  get 'issues/index'
 
   telegram_webhook Telegram::WebhooksController, :helper
 	devise_for :users, :controllers => { :sessions => "sessions" } do
