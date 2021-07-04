@@ -1,5 +1,6 @@
 Adminia6::Application.routes.draw do
 
+  get 'notifications/index'
   telegram_webhook Telegram::WebhooksController, :helper
 	devise_for :users, :controllers => { :sessions => "sessions" } do
 		get '/neighbors/sign_out' => 'devise/sessions#destroy'

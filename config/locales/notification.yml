@@ -1,0 +1,5 @@
+ru:
+  notifications:
+    issue_notification:
+      message: 'Создано новое обращение %{issue}'
+

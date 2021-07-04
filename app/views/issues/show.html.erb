@@ -6,6 +6,11 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="m-b-md">
+
+                <% issue.images.each do |image| %>
+                  <%= image_tag image[:covers] %>
+                <% end %>
+
                 <div><%= I18n.t('.issue.name') %></div>
 
                 <!--                <a href="#" class="btn btn-white btn-xs pull-right">Edit project</a>-->
@@ -20,9 +25,6 @@
 
               <div><p><%= issue.description.html_safe %></p></div>
 
-              <% issue.images.each do |image| %>
-                <%= image_tag image %>
-              <% end %>
 
             </div>
 

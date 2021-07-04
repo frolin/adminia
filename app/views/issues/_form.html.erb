@@ -53,7 +53,6 @@
               <div class="mb-6 form-group row">
                 <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="10">
                   <%= f.file_field :images, multiply: true, direct_upload: true, data: { dropzone_target: 'input' }, name: 'issue[images][]' %>
-                  <%#= file_field_tag('attachment[images][]', multiple: true, class: 'drop-target') %>
                   <div class="dropzone-msg dz-message needsclick text-gray-600">
                     <h3 class="dropzone-msg-title">Добавить изображения</h3>
                     <span class="dropzone-msg-desc text-sm">2 MB file size maximum.</span>

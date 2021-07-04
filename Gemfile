@@ -90,3 +90,5 @@ gem "tailwindcss-rails", "~> 0.3.3"
 gem "simple_form", "~> 5.1"
 gem "select2-rails"
 gem "new_ckeditor", "~> 0.1.2"
+
+gem "noticed", "~> 1.4"

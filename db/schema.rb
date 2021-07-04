@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_200439) do
+ActiveRecord::Schema.define(version: 2021_07_04_220030) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -78,6 +78,18 @@ ActiveRecord::Schema.define(version: 2021_07_02_200439) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_issues_on_category_id"
     t.index ["user_id"], name: "index_issues_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.integer "recipient_id", null: false
+    t.string "type", null: false
+    t.json "params"
+    t.datetime "read_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
   create_table "projects", force: :cascade do |t|

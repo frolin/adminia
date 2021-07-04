@@ -12,6 +12,10 @@ class User < ApplicationRecord
 	has_many :users_roles
 	has_many :roles, through: :users_roles
 
+	### noticed gem
+		has_many :notifications, as: :recipient
+	###
+
 	scope :neighbors, -> { where(admin: false) }
 
 	def username

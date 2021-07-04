@@ -1,0 +1,15 @@
+<% current_user.notifications.each do |notice| %>
+
+  <li>
+    <div class="dropdown-messages-box">
+      <a href="#" class="pull-left">
+        <img alt="image" class="img-circle" src="<%= image_path('a7.jpg') %>"/>
+      </a>
+      <div class="media-body">
+                          <small class="pull-right">46h ago</small>
+                          <strong></strong>  <strong>  <%= notice.to_notification.message %></strong>. <br/>
+                          <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+      </div>
+    </div>
+  </li>
+<% end %>

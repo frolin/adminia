@@ -15,6 +15,7 @@ class IssuesController < ApplicationController
 
 		if issue.save
 			redirect_to issue_path(issue), notice: 'Post was successfully created.'
+			IssueNotification.with(issue: issue).deliver_later(current_user)
 		else
 			render :new, locals: { issue: issue }
 		end
