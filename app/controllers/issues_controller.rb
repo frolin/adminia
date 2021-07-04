@@ -8,6 +8,7 @@ class IssuesController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		issue = Issue.new(permitted_params)
 		issue.user_id = current_user.id
 		authorize issue
@@ -32,7 +33,7 @@ class IssuesController < ApplicationController
 	private
 
 	def permitted_params
-		params.require(:issue).permit(:id, :name, :description, :user_id, tag_list: [], images: [])
+		params.require(:issue).permit(:id, :name, :description, :user_id, :category, images: [], tag_list: [] )
 	end
 
 	def resource_class

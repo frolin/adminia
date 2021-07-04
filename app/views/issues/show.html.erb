@@ -19,6 +19,11 @@
               <div><%= I18n.t('.issue.description') %></div>
 
               <div><p><%= issue.description.html_safe %></p></div>
+
+              <% issue.images.each do |image| %>
+                <%= image_tag image %>
+              <% end %>
+
             </div>
 
           </div>

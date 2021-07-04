@@ -10,9 +10,7 @@ class Issue < ApplicationRecord
 	scope :created, ->  { where(status: [:queue, :in_work]) }
 	scope :done, ->  { where(status: :done) }
 
-	has_many_attached :images do |attachable|
-		attachable.variant :thumb, resize: "320x230"
-	end
+	has_many_attached :images
 
 	validates :name, :description, presence: true
 
