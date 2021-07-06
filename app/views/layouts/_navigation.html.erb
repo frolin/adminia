@@ -2,30 +2,31 @@
   <div class="sidebar-collapse">
     <ul class="nav metismenu" id="side-menu">
       <li class="nav-header">
-        <div class="dropdown profile-element">
-                    <span>
-                        <img alt="image" class="img-circle" src="<%= url_for(current_user.avatar.variant(resize_to_fill: [128, 128, gravity: 'north'])) %>"/>
+        <div class="dropdown  profile-element">
+                    <span class="header-avvatar">
+                        <img alt="image" class="img-circle"
+                             src="<%= url_for(current_user.avatar.variant(resize_to_fill: [128, 128, gravity: 'north'])) %>"/>
                     </span>
           <a href="<%= user_root_path %>">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class="font-bold"><%= current_user.username %></strong>
+                                <strong class=""><%= current_user.username %></strong>
                             </span>
-                          <span class="text-muted text-xs block"> <%= "Участок: #{current_user.locality}" %>
+                          <span class="text-muted text-s block"> <%= "Участок: #{current_user.locality}" %>
                             <b class="caret"></b></span>
                         </span>
           </a>
-<!--          <ul class="dropdown-menu animated fadeInRight m-t-xs">-->
-<!--            <li><a href="<%#= user_root_path %>">Profile</a>-->
-<!--            </li>-->
-<!--            <li><a href="">Contacts</a>-->
-<!--            </li>-->
-<!--            <li><a href="">Mailbox</a>-->
-<!--            </li>-->
-<!--            <li class="divider"></li>-->
-<!--            <li><a href="">Logout</a>-->
-<!--            </li>-->
-<!--          </ul>-->
+          <!--          <ul class="dropdown-menu animated fadeInRight m-t-xs">-->
+          <!--            <li><a href="<%#= user_root_path %>">Profile</a>-->
+          <!--            </li>-->
+          <!--            <li><a href="">Contacts</a>-->
+          <!--            </li>-->
+          <!--            <li><a href="">Mailbox</a>-->
+          <!--            </li>-->
+          <!--            <li class="divider"></li>-->
+          <!--            <li><a href="">Logout</a>-->
+          <!--            </li>-->
+          <!--          </ul>-->
         </div>
         <div class="logo-element">
           IN+

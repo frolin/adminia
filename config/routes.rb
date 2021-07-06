@@ -1,16 +1,20 @@
 Adminia6::Application.routes.draw do
 
-  get 'notifications/index'
-  telegram_webhook Telegram::WebhooksController, :helper
+	get 'notifications/index'
+	telegram_webhook Telegram::WebhooksController, :helper
 	devise_for :users, :controllers => { :sessions => "sessions" } do
 		get '/neighbors/sign_out' => 'devise/sessions#destroy'
 	end
 	root to: "dashboards#dashboard_3"
 
-  resources :projects, only: [:index, :show]
-  resources :events, only: [:index, :show]
-  resources :issues, except: :destroy
-  resources :neighbors, only: [:index, :show]
+	resources :projects, only: [:index, :show]
+	resources :events, only: [:index, :show]
+	resources :issues, except: :destroy do
+		member do
+			delete :delete_image_attachment
+		end
+	end
+	resources :neighbors, only: [:index, :show]
 
 	get "appviews/pin_board"
 	get "appviews/social_feed"
