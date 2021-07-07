@@ -54,7 +54,7 @@
                   <% resource.images.each_with_index do |image, i| %>
                     <div class=<%= "flex-initial flex-#{i}" %>>
                       <%= image_tag image.variant(resize: "100x100 ^ ", crop: '100x100+0+0', :gravity => "Center ") %>
-                      <%= link_to 'Remove', delete_image_attachment_issue_url(image: {id: image.id}),
+                      <%= link_to 'X', delete_image_attachment_issue_url(image: {id: image.id}),
                                   method: :delete,
                                   data: { confirm: 'Уверены?' } %>
                     </div>

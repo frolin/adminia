@@ -1,5 +1,5 @@
 Adminia6::Application.routes.draw do
-
+  get 'comments/index'
 	get 'notifications/index'
 	telegram_webhook Telegram::WebhooksController, :helper
 	devise_for :users, :controllers => { :sessions => "sessions" } do
@@ -10,11 +10,13 @@ Adminia6::Application.routes.draw do
 	resources :projects, only: [:index, :show]
 	resources :events, only: [:index, :show]
 	resources :issues, except: :destroy do
+		resources :comments, module: :issues
 		member do
 			delete :delete_image_attachment
 		end
 	end
 	resources :neighbors, only: [:index, :show]
+	resources :car_orders
 
 	get "appviews/pin_board"
 	get "appviews/social_feed"

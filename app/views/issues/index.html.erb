@@ -93,7 +93,8 @@
       <div class="ibox">
         <div class="ibox-title">
           <h5>Все обращения</h5>
-          <a href="<%= new_issue_path %>" class="btn btn-warning float-right">Новое обращение</a>
+          <%= link_to 'Новое обращение', new_issue_path, class: 'btn btn-warning float-right', remote: true %>
+<!--          <a href="<%#= new_issue_path %>" class="btn btn-warning float-right">Новое обращение</a>-->
         </div>
         <div class="ibox-content">
 <!--          <div class="row m-b-sm m-t-sm">-->
@@ -115,14 +116,24 @@
 <!--          </div>-->
 
 
+          <div class="resource_filters">
+            <% Issue.statuses.each  do |status|%>
+              <% count = Issue.where(status: status).size  %>
+              <%= link_to label_status(status, :label, count) , issues_path(status: status) %>
+            <% end %>
+          </div>
+
+
+
           <table class="table table-hover ">
 
             <thead>
             <tr>
               <th>Тема</th>
               <th>Дата создания</th>
+              <th>Автор</th>
               <th><%= I18n.t('.issue.status.label') %></th>
-              <th>Категории</th>
+<!--              <th>Категории</th>-->
             </tr>
             </thead>
 
@@ -140,13 +151,15 @@
 
                 <td><small> <%= l(issue.created_at) %></small></td>
 
+                <td><small> <%= issue.user.username %></small></td>
+
                 <td><%= label_status(issue.status, :label) %> </td>
 
-                <td>
-                  <ul class="tag-list" style="padding: 0">
-                    <span class="category-tag"></span>
-                  </ul>
-                </td>
+<!--                <td>-->
+<!--                  <ul class="tag-list" style="padding: 0">-->
+<!--                    <span class="category-tag"></span>-->
+<!--                  </ul>-->
+<!--                </td>-->
 
 
                 <td class="issue-people">
@@ -165,3 +178,4 @@
 </div>
 
 
+<%= render partial: 'layouts/modal', resource: Issue.new %>

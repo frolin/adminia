@@ -6,8 +6,9 @@
         <img alt="image" class="img-circle" src="<%= image_path('a7.jpg') %>"/>
       </a>
       <div class="media-body">
-                          <small class="pull-right">46h ago</small>
-                          <strong></strong>  <strong>  <%= notice.to_notification.message %></strong>. <br/>
+                          <small class="pull-right">notice.time_ago</small>
+<!--        <strong></strong>-->
+        <strong>  <%= link_to notice.to_notification.message, issue_path(notice[:params][:issue][:id]) %></strong>. <br/>
                           <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
       </div>
     </div>

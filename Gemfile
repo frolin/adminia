@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
@@ -49,8 +49,8 @@ group :development do
 	gem 'listen', '~> 3.3'
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring'
-
-
+	gem 'annotate'
+	gem "letter_opener"
 end
 
 group :test do
@@ -72,6 +72,7 @@ gem 'resource_scaffold', git: 'https://github.com/frolin/resource_scaffold'
 
 # Auth
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'pundit'
 
 #Avatars

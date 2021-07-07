@@ -10,7 +10,9 @@
                 <% cover_img = issue.images.attachments[0] %>
                 <% images = issue.images.attachments[1..-1] %>
 
-                <%= image_tag cover_img.variant(resize: "960x300^", crop: '960x300+0+0', :gravity => "Center") %>
+                <% if cover_img.present? %>
+                  <%= image_tag cover_img.variant(resize: "960x300^", crop: '960x300+0+0', :gravity => "Center") %>
+                <% end %>
 
                 <div><%= I18n.t('.issue.name') %></div>
 
@@ -30,16 +32,25 @@
               <div><%= I18n.t('.issue.description') %></div>
 
               <div><p><%= issue.description.html_safe %></p></div>
-              <div class="flex">
-                <% images.each_with_index do |image, i| %>
-                  <div class=<%= "flex-initial flex-#{i}" %>>
-                    <%= image_tag image.variant(resize: "100x100 ^ ", crop: '100x100+0+0', :gravity => "Center ") %>
-                  </div>
 
-                <% end %>
-              </div>
+              <% if images.present? %>
+
+                <div class="flex">
+                  <% images.each_with_index do |image, i| %>
+                    <div class=<%= "flex-initial flex-#{i}" %>>
+                      <%= image_tag image.variant(resize: "100x100 ^ ", crop: '100x100+0+0', :gravity => "Center ") %>
+                    </div>
+
+                  <% end %>
+                </div>
+              <% end %>
 
             </div>
+              <h3>Комментарии</h3>
+
+            <%= render partial: 'comments/comments', locals: { commentable: issue } %>
+            <%= render partial: 'comments/form', locals: { commentable: issue } %>
+
 
           </div>
         </div>

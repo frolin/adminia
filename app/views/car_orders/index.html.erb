@@ -1,0 +1,17 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <ul class="notes">
+    <% resources.each do |car_order| %>
+      <li>
+        <div>
+          <small><%= car_order.created_at %></small>
+          <br>
+          <h3><%= car_order.number %></h3>
+          <h4><%= car_order.title %></h4>
+<!--          <a href="#"><i class="fa fa-trash-o "></i></a>-->
+        </div>
+      </li>
+    <% end %>
+
+  </ul>
+</div>
+

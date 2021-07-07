@@ -4,15 +4,17 @@
       <li class="nav-header">
         <div class="dropdown  profile-element">
                     <span class="header-avvatar">
+                      <% if current_user && current_user.avatar.present? %>
                         <img alt="image" class="img-circle"
                              src="<%= url_for(current_user.avatar.variant(resize_to_fill: [128, 128, gravity: 'north'])) %>"/>
+                        <% end %>
                     </span>
           <a href="<%= user_root_path %>">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class=""><%= current_user.username %></strong>
+                                <strong class=""><%= current_user&.username %></strong>
                             </span>
-                          <span class="text-muted text-s block"> <%= "Участок: #{current_user.locality}" %>
+                          <span class="text-muted text-s block"> <%= "Участок: #{current_user&.locality}" %>
                             <b class="caret"></b></span>
                         </span>
           </a>
@@ -128,7 +130,7 @@
       </li>
 
       <li class="<%= is_active_controller('pin') %>">
-        <%= link_to appviews_pin_board_path do %>
+        <%= link_to car_orders_path do %>
           <i class="fa fa-key"></i>
           <span class="nav-label" data-i18n="categories.order_pass"> <%= I18n.t('.categories.order_pass') %> </span>
         <% end %>

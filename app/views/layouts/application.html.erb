@@ -29,7 +29,7 @@
   <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
 
     <!-- Page wrapper -->
-    <%= render 'layouts/topnavbar' %>
+    <%= render 'layouts/topnavbar' if current_user %>
 
     <!-- Main view  -->
     <%= render 'layouts/breadcrumbs' %>

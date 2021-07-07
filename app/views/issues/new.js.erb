@@ -1,0 +1,7 @@
+$(".modal-body").html("<%= j render(partial: 'issues/form', locals: { resource: issue }) %>")
+
+// $('#defaultModal .modal-footer').remove();
+// $('#defaultModal .modal-body').remove();
+// $('#defaultModal form').remove();
+
+$('#defaultModal').modal('show');

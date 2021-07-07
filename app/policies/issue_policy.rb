@@ -4,7 +4,7 @@ class IssuePolicy < ApplicationPolicy
 	end
 
 	def show?
-		user.with_role?('super_admin')
+		user.with_role?('super_admin') || user.with_role?('common')
 	end
 
 	def create?

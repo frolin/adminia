@@ -1,4 +1,14 @@
 class IssuesController < ApplicationController
+
+	def index
+		collection = resources
+		collection = collection.filter_by_status(params[:status]) if params[:status].present?
+
+		authorize collection
+
+		render locals: { issues: collection}
+	end
+
 	def new
 		render locals: { issue: resource_class.new }
 	end
@@ -14,7 +24,7 @@ class IssuesController < ApplicationController
 
 		if issue.save
 			redirect_to issue_path(issue), notice: 'Post was successfully created.'
-			IssueNotification.with(issue: issue).deliver_later(current_user)
+			IssueNotification.with(issue: issue).deliver_later(User.with_notify_settings)
 		else
 			render :new, locals: { issue: issue }
 		end
@@ -25,21 +35,20 @@ class IssuesController < ApplicationController
 		render locals: { issue: resource }
 	end
 
-	def index
-		authorize resources
-		render locals: { issues: resources }
-	end
 
 	def delete_image_attachment
 		image_id = params.dig(:image, :id)
 		attachment = ActiveStorage::Attachment.find(image_id)
 
 		if attachment.present?
-			attachment.purge
-			redirect_to edit_issue_path(resource)
+			attachment.purge_later
+
+			flash[:success] = "Изображение успешно удалено"
+			redirect_to edit_issue_path(resource), flash: { notice: "Изображение успешно удалено" }
 		else
+			flash[:notice] = "Не удалось найти данное изображение"
 			raise 'not found!'
-			redirect_to edit_issue_path(resource)
+			redirect_to edit_issue_path(resource), flash: { alert: "Не удалось найти данное изображение" }
 		end
 	end
 
