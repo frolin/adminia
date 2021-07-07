@@ -1,3 +1,5 @@
 <% commentable.comments.each do |comment| %>
-  <div class="well"><%= comment.body %></div>
+  <div class="well"><%= comment.body %>
+    <div>автор: <%= User.find(comment.user_id).username %></div>
+  </div>
 <% end %>

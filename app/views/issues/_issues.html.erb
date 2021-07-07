@@ -1,0 +1,30 @@
+<% issues.by_status.each_with_index do |issue, i| %>
+  <tr>
+
+    <td class="issue-title">
+      <p>
+        <%= link_to issue.name, issue_path(issue) %>
+      </p>
+      <br/>
+    </td>
+
+    <td><small> <%= l(issue.created_at) %></small></td>
+
+    <td><small> <%= issue.user.username %></small></td>
+
+    <td><%= label_status(issue.status, :label) %> </td>
+
+    <!--                <td>-->
+    <!--                  <ul class="tag-list" style="padding: 0">-->
+    <!--                    <span class="category-tag"></span>-->
+    <!--                  </ul>-->
+    <!--                </td>-->
+
+
+    <td class="issue-people">
+      <%# issue.images.each do |image| %>
+      <%#= image_tag image, class: 'img-circle' %>
+      <%# end %>
+    </td>
+  </tr>
+<% end %>

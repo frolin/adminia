@@ -24,7 +24,7 @@ class IssuesController < ApplicationController
 
 		if issue.save
 			redirect_to issue_path(issue), notice: 'Post was successfully created.'
-			IssueNotification.with(issue: issue).deliver_later(User.with_notify_settings)
+			# IssueNotification.with(issue: issue).deliver_later(User.with_notify_settings)
 		else
 			render :new, locals: { issue: issue }
 		end
@@ -55,7 +55,7 @@ class IssuesController < ApplicationController
 	private
 
 	def permitted_params
-		params.require(:issue).permit(:id, :name, :description, :user_id, :category, images: [], tag_list: [])
+		params.require(:issue).permit(:id, :name, :description, :category, images: [], tag_list: [])
 	end
 
 	def resource_class

@@ -119,7 +119,7 @@
           <div class="resource_filters">
             <% Issue.statuses.each  do |status|%>
               <% count = Issue.where(status: status).size  %>
-              <%= link_to label_status(status, :label, count) , issues_path(status: status) %>
+              <%= link_to label_status(status, :label, count) , issues_path(status: status), remote: true %>
             <% end %>
           </div>
 
@@ -138,37 +138,7 @@
             </thead>
 
             <tbody>
-
-            <% issues.by_status.each_with_index do |issue, i| %>
-              <tr>
-
-                <td class="issue-title">
-                  <p>
-                    <%= link_to issue.name, issue_path(issue) %>
-                  </p>
-                  <br/>
-                </td>
-
-                <td><small> <%= l(issue.created_at) %></small></td>
-
-                <td><small> <%= issue.user.username %></small></td>
-
-                <td><%= label_status(issue.status, :label) %> </td>
-
-<!--                <td>-->
-<!--                  <ul class="tag-list" style="padding: 0">-->
-<!--                    <span class="category-tag"></span>-->
-<!--                  </ul>-->
-<!--                </td>-->
-
-
-                <td class="issue-people">
-                  <%# issue.images.each do |image| %>
-                  <%#= image_tag image, class: 'img-circle' %>
-                  <%# end %>
-                </td>
-              </tr>
-            <% end %>
+              <%= render partial: 'issues', locals: {issues: issues}  %>
             </tbody>
           </table>
         </div>
